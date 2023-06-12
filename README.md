@@ -1,25 +1,28 @@
-# Build Your Own World Design Document
+# Sweet Water Design Document
 
-**Partner 1:**
-Cansin Rodoplu
 
 This algorithm creates a random world, dependent on a seed number that the user inputs at the beginning of the game. There are two components to the game:
 First of all, the user can explore the world using s (down), d (right), a (left), and a (up) letters as commands.
-Second of all, the user can enter a new world if they find the water icon in the random old world.
+Second of all, the user can enter a new world -- the sweet water world -- if they find the water icon in the random old world.
+The algorithm also makes use of persistence as previous worlds and the status of the player can be saved.
 
-## Classes and Data Structures
-The RandomWorldGenerator Class in Core will be the main driver for generating my Random world.
+# Classes
+All the classes are in the Core folder inside of the byow (stands for build your own world) folder.
 
-The randomness is derived through the string argument passed in by the user.
+## Main.java Class
+This is the main entry point for the program. This class simply parses the command line inputs, and lets the byow.Core.Engine class take over in either keyboard or input string mode.
 
-The RandomWorldGenerator Class contains the following instance variables:
+## Engine.java Class
+This class has two methods instrumental in creating the random world.
 
-* rand --> random object
-* int seed
+interactWithInputString(String input): This method allows you to simulate user interaction by providing a series of keyboard inputs as a string. It returns a 2D array of TETile objects representing the state of the universe after processing all the key presses provided in the input.
 
-Random object gets initialized in the RandomWorldGenerator constructor which parses the string to find the integer and sets it as seed.
+interactWithKeyboard(): This method enables real-time user interaction by reading input directly from the keyboard. It draws the result of each key press to the screen as you interact with the system.
+This class is equally key in the persistence process as it saves and reopens the last version of the game if the player wants to.
 
+## RandomWorldGenerator.java
+This class creates the random world using the seed number put in by the player of the game.
 
-## Algorithms
+## PokemonWorld.java
+This class creates the pokemon world -- which is not a random world.
 
-## Persistence
